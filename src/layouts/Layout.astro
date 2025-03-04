@@ -1,0 +1,84 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/Header/Header.astro";
+import InterMedium from "@/styles/fonts/Inter-Medium.woff2";
+import InterRegular from "@/styles/fonts/Inter-Regular.woff2";
+import InterSemibold from "@/styles/fonts/Inter-Semibold.woff2";
+import logoSvg from "@/assets/logo.svg";
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  containerClass?: string;
+  class?: string;
+  showHeader?: boolean;
+  preload?: string[];
+}
+
+const {
+  class: className,
+  showHeader = false,
+  preload,
+  containerClass,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href={InterMedium}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={InterRegular}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={InterSemibold}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={InterSemibold}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href={logoSvg.src} as="fetch" crossorigin />
+
+    {
+      preload?.map((href) => (
+        <link rel="preload" href={href} as="fetch" crossorigin />
+      ))
+    }
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </>
+  <body class:list={twMerge(["bg-nexos-gray text-nexos-text", containerClass])}>
+    {showHeader && <Header class="max-w-6xl" />}
+    <main class:list={["max-w-6xl mx-auto py-4 bg-nexos-gray", className]}>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

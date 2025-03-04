@@ -1,35 +1,48 @@
-# Technical Interview Task for a Front-End Position
+# Astro Starter Kit: Basics
 
-## Functional requirements
+```sh
+npm create astro@latest -- --template basics
+```
 
-- 🔍 Create a server explorer web app
-- 🔒 Implement login ``POST https://playground.tesonet.lt/v1/tokens {username: "tesonet", password: "partyanimal" }``
-- 📋 Display servers list
-```GET https://playground.tesonet.lt/v1/servers```
-- ↕ Make servers list sortable by name/distance
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-## Non-functional requirements
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-- 🌐 App must work on all modern browsers
-- 📱 App must also work well on mobile & tablet devices
-- ✔️ App must be production-ready. We'd like you to demonstrate what a production-ready app means to you. No need to overcomplicate things, having the basics covered and listing some ideas for improvement in the documentation will suffice
-- 🧪 We like tests
-- ♿️ Consider a11y
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
-## Design requirements
+## 🚀 Project Structure
 
-Please follow the provided [design](https://www.figma.com/file/Vwv2xN7hYUADzIotUcSypF/Design-for-Front-End-Recruitment-Task?type=design&node-id=1-554&t=ork7e8jy9iWuLikn-0) 👈. We're looking for accurate implementation of the design and attention to detail.
+Inside of your Astro project, you'll see the following folders and files:
 
-## Side notes
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-- You may use the JavaScript framework of your choice
-- If you're proficient with TypeScript, we encourage you to showcase your skills 😎
-- We prefer the repository structure to adhere to industry-standard practices
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-## Home task submission
+## 🧞 Commands
 
-As for the submission of the task, we fully understand that people have lives outside of work. Therefore, we do not expect home tasks to be submitted within a day or two. On average, we get them back within a week. But if more time is needed – simply inform your recruiter, so everyone is updated.
+All commands are run from the root of the project, from a terminal:
 
-Once you have finished the task, please let your recruiter know. They will then assign a Nord Security developer to start the review process (which typically takes 1-2 days). After that, the recruiter will share full feedback with you.
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-We wish you all the best and look forward to meeting you for a technical discussion! Good luck!
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
