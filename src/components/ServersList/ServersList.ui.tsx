@@ -1,7 +1,7 @@
 import downSvg from "@/assets/down.svg";
 import { twMerge } from "tailwind-merge";
 import { useSortedServers } from "./useSortedServers";
-import { getFlagFromText } from "./getFlagFromText";
+import { Flag } from "./Flag";
 
 export function ServersList({
   servers,
@@ -43,27 +43,22 @@ export function ServersList({
               !sort.startsWith("distance") && "hidden",
             ])}
             src={downSvg.src}
-            alt=""
+            width="10"
+            height="10"
+            alt="sort indicator"
           />
         </button>
       </div>
       <ul>
-        {sortedServers.map(({ name, distance }) => (
+        {sortedServers.map(({ name, distance }, idx) => (
           <li
-            key={name + distance}
-            className="border-t border-nexos-border py-6 text-sm flex justify-between"
+            // biome-ignore lint/suspicious/noArrayIndexKey: animate on sort
+            key={name + distance + idx}
+            className="border-t border-nexos-border py-6 text-sm flex justify-between opacity-0 animate-in-fast"
+            style={{ animationDelay: `${idx * 20}ms` }}
           >
             <span className="flex gap-2 items-center">
-              <span className="min-w-[32px] min-h-[24px] flex items-center">
-                <img
-                  className="border-[1px] border-nexos-border"
-                  width="32"
-                  height="24"
-                  src={getFlagFromText(name)}
-                  alt="flag"
-                  loading="lazy"
-                />
-              </span>
+              <Flag text={name} />
               <span>{name}</span>
             </span>
             <span>{distance}</span>

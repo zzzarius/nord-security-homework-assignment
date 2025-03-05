@@ -12,6 +12,7 @@ interface Props {
   class?: string;
   showHeader?: boolean;
   preload?: string[];
+  title: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   showHeader = false,
   preload,
   containerClass,
+  title = "Developer | Technical Interview Task for a Front-End Position",
 } = Astro.props;
 ---
 
@@ -64,7 +66,7 @@ const {
       ))
     }
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{title}</title>
   </>
   <body class:list={twMerge(["bg-nexos-gray text-nexos-text", containerClass])}>
     {showHeader && <Header class="max-w-6xl" />}
