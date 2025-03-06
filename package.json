@@ -8,12 +8,20 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "biome lint --write .",
-    "lint:fix": "biome check --write ."
+    "lint:fix": "biome check --write .",
+    "e2e": "playwright test",
+    "e2e:update": "playwright test --update-snapshots",
+    "vitest": "vitest",
+    "vitest:run": "vitest run",
+    "test": "vitest && npm e2e",
+    "test:update": "vitest --update && npm e2e:update"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^9.1.2",
     "@astrojs/react": "^4.2.1",
     "@astrojs/ts-plugin": "^1.10.4",
+    "@astrojs/vercel": "^8.1.1",
     "@tailwindcss/vite": "^4.0.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -27,6 +35,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/js-cookie": "^3.0.6"
+    "@playwright/test": "^1.50.1",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^22.13.9",
+    "playwright": "^1.50.1",
+    "vitest": "^3.0.7"
   }
 }

@@ -1,9 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { ServersList } from "@/components/ServersList";
-import { getServers } from "@/api/getServers";
 import { Heading1 } from "@/shared/Heading1";
 import { Description } from "@/shared/Description";
+import { getServers } from "@/api/getServers";
 
 export const prerender = false;
 
@@ -12,7 +12,11 @@ const token = Astro.cookies.get("token")?.value;
 if (!token) {
   return Astro.redirect("/login");
 }
-let servers = [];
+let servers: {
+  name: string;
+  distance: number;
+}[] = [];
+
 try {
   servers = await getServers(token);
 } catch (error) {
@@ -20,7 +24,11 @@ try {
 }
 ---
 
-<Layout class="flex flex-col items-center px-4" showHeader={true} title="Developer | Server list">
+<Layout
+  class="flex flex-col items-center px-4"
+  showHeader={true}
+  title="Developer | Server list"
+>
   <Heading1 size="large" className="mb-4">Server list</Heading1>
   <Description className="px-2 mb-7.5 text-nexos-text">
     The distance between you and the server

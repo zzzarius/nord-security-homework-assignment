@@ -25,3 +25,6 @@ Thumbs.db
 
 # jetbrains setting folder
 .idea/
+
+# e2e playwright
+playwright-test-results/

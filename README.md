@@ -1,48 +1,38 @@
-# Astro Starter Kit: Basics
+# Homework
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Setup
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- `cp .env.example .env` and fill out the variables
+- `npx playwright install` to be able to test locally
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| Astro commands         |                                                  |
+| `npm install`         | Installs dependencies                            |
+| `npm dev`             | Starts local dev server at `localhost:4321`      |
+| `npm build`           | Build your production site to `./dist/`          |
+| `npm preview`         | Preview your build locally, before deploying     |
+| `npm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm astro -- --help` | Get help using the Astro CLI                     |
+| Other commands         |                                                  |
+| `npm e2e`             | Run e2e (playwright) tests                       |
+| `npm e2e:update`      | Update snapshots for e2e  (playwright) tests     |
+| `npm vitest`          | Run vitest unit tests and watch for file changes |
+| `npm vitest:run`      | Run vitest once without watching for changes     |
+| `npm test:update`     | Update snapshots for all tests                   |
+| `npm test`            | Runs vitest and e2e (playwright) tests           |
 
-## 👀 Want to learn more?
+## Tests
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+There are two types of tests
+
+- End-to-end - using [Playwright](https://playwright.dev/docs/intro). For
+  making accurate snapshots (screenshots) to be able to catch regressions
+  early. And for testing critical business logic using actual browser as
+  end user would.
+- Unit tests - using [Vitest](https://vitest.dev/guide/). For testing
+  validity of the functions.
