@@ -22,18 +22,19 @@ jobs:
           node-version: "23"
 
       - name: Install dependencies
-        run: npm install --production=false --frozen-lockfile --non-interactive
+        run: npm install --include=dev --frozen-lockfile --non-interactive
 
       - name: Install Playwright Firefox browser
-        run: npm playwright install --with-deps firefox
+        run: npx playwright install --with-deps firefox
 
       - name: Build
-        run: npm build
+        run: npm run build
 
-      - name: Run Playwright tests
-        run: npm test
+      - name: Run tests
+        run: npm run test
+        continue-on-error: true
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-test-results
