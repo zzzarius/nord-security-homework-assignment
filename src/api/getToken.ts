@@ -1,5 +1,7 @@
+import { TOKEN_API_ENDPOINT } from "astro:env/client";
+
 export async function getToken(username: string, password: string) {
-  const tokenResponse = await fetch("https://playground.tesonet.lt/v1/tokens", {
+  const tokenResponse = await fetch(TOKEN_API_ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),

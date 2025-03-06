@@ -28,3 +28,6 @@ Thumbs.db
 
 # e2e playwright
 playwright-test-results/
+
+# vercel artifacts
+.vercel/

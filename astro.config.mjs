@@ -1,6 +1,6 @@
 // @ts-check
 import { loadEnv } from "vite";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
@@ -27,4 +27,29 @@ export default defineConfig({
         mode: "standalone",
       })
     : vercel(),
+  env: {
+    schema: {
+      CI: envField.boolean({
+        context: "server",
+        access: "secret",
+        optional: true,
+      }),
+      PREVIEW: envField.boolean({
+        context: "server",
+        access: "secret",
+        optional: true,
+        default: true,
+      }),
+      SERVERS_API_ENDPOINT: envField.string({
+        context: "server",
+        access: "secret",
+        default: "https://playground.tesonet.lt/v1/servers",
+      }),
+      TOKEN_API_ENDPOINT: envField.string({
+        context: "client",
+        access: "public",
+        default: "https://playground.tesonet.lt/v1/tokens",
+      }),
+    },
+  },
 });

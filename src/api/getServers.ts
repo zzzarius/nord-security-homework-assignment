@@ -1,3 +1,4 @@
+import { SERVERS_API_ENDPOINT, CI } from "astro:env/server";
 import { SERVERS_RESPONSE_MOCK } from "./ServersResponse.mock";
 
 export interface Server {
@@ -5,20 +6,15 @@ export interface Server {
   distance: number;
 }
 
-const isCI = process.env.CI === "true";
-
 export async function getServers(token: string) {
-  if (isCI) {
+  if (CI) {
     return SERVERS_RESPONSE_MOCK;
   }
-  const serversResponse = await fetch(
-    "https://playground.tesonet.lt/v1/servers",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const serversResponse = await fetch(SERVERS_API_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   if (!serversResponse.ok) {
     throw new Error(
