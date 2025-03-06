@@ -10,12 +10,12 @@
   --font-sans: "Inter", "Inter-fallback";
   --font-body: "Inter", "Inter-fallback";
 
-  --color-nexos-text: "#383C43";
-  --color-nexos-gray: #f3f7fc;
-  --color-nexos-gray-text: #8a8c91;
-  --color-nexos-light: #ffffff;
-  --color-nexos-border: #e8e8e9;
-  --color-nexos-highlight: #3e5fff;
+  --color-nexos-text: oklch(0.36 0.01 261.73 / 1); /* #383c43 */
+  --color-nexos-gray: oklch(0.97 0.01 253.85 / 1); /* #f3f7fc */
+  --color-nexos-gray-text: oklch(0.64 0.01 268.51 / 1); /* #8a8c91 */
+  --color-nexos-light: oklch(1 0 0 / 1); /* #ffffff */
+  --color-nexos-border: oklch(0.93 0 286.37 / 1); /* #e8e8e9 */
+  --color-nexos-highlight: oklch(0.56 0.24 268.3 / 1); /* #3e5fff */
 
   --animate-in: animateIn 0.5s ease-in normal forwards 1;
   --animate-in-fast: animateIn 0.2s ease-in normal forwards 1;
