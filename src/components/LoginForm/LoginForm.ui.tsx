@@ -3,12 +3,13 @@ import { useState } from "react";
 import { LoadingIndicator } from "./LoadingIndicator.ui";
 import { getToken } from "@/api/getToken";
 import Cookies from "js-cookie";
-import { Button } from "@/shared/Button";
+import { Button } from "@/shared/components/Button";
 import { FormField } from "./FormField.ui";
-import { Description } from "@/shared/Description";
-import { Heading1 } from "@/shared/Heading1";
+import { Description } from "@/shared/components/Description";
+import { Heading1 } from "@/shared/components/Heading1";
 import { twMerge } from "tailwind-merge";
 import { BAD_CREDENTIALS, NO_USERNAME_OR_PASSWORD } from "@/api/errors";
+import { cookieValidForDays } from "@config";
 
 interface LoginFormProps {
   errorText?: string;
@@ -40,7 +41,7 @@ export function LoginForm({
     setUsername(passwordFormValue);
     try {
       const token = await getToken(usernameFormValue, passwordFormValue);
-      Cookies.set("token", token, { expires: 7, path: "" });
+      Cookies.set("token", token, { expires: cookieValidForDays, path: "" });
       window.location.href = "/";
     } catch (e) {
       setError(BAD_CREDENTIALS);
