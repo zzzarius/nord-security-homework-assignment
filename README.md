@@ -3,7 +3,7 @@
 ## Setup
 
 - `cp .env.example .env` and fill out the variables
-- `npx playwright install` to be able to test locally
+- run `npx playwright install` to be able to run e2e tests locally
 
 ## 🧞 Commands
 
@@ -13,18 +13,18 @@ All commands are run from the root of the project, from a terminal:
 | :--------------------- | :----------------------------------------------- |
 | Astro commands         |                                                  |
 | `npm install`         | Installs dependencies                            |
-| `npm dev`             | Starts local dev server at `localhost:4321`      |
-| `npm build`           | Build your production site to `./dist/`          |
-| `npm preview`         | Preview your build locally, before deploying     |
-| `npm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm astro -- --help` | Get help using the Astro CLI                     |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 | Other commands         |                                                  |
-| `npm e2e`             | Run e2e (playwright) tests                       |
-| `npm e2e:update`      | Update snapshots for e2e  (playwright) tests     |
-| `npm vitest`          | Run vitest unit tests and watch for file changes |
-| `npm vitest:run`      | Run vitest once without watching for changes     |
-| `npm test:update`     | Update snapshots for all tests                   |
-| `npm test`            | Runs vitest and e2e (playwright) tests           |
+| `npm run e2e`             | Run e2e (playwright) tests                       |
+| `npm run e2e:update`      | Update snapshots for e2e  (playwright) tests     |
+| `npm run vitest`          | Run vitest unit tests and watch for file changes |
+| `npm run vitest:run`      | Run vitest once without watching for changes     |
+| `npm run test:update`     | Update snapshots for all tests                   |
+| `npm run test`            | Runs vitest and e2e (playwright) tests           |
 
 ## Tests
 
