@@ -9,7 +9,7 @@ const breakpoints = { [MOBILE]: 360, [TABLET]: 768, [DESKTOP]: 1400 } as const;
 export async function getFullHeightPageSnapshot(
   slug: string,
   page: Page,
-  breakpoint: keyof typeof breakpoints
+  breakpoint: keyof typeof breakpoints,
 ) {
   await page.goto(slug);
   await page.setViewportSize({ width: breakpoints[breakpoint], height: 400 });
@@ -19,7 +19,7 @@ export async function getFullHeightPageSnapshot(
   const { height } = (await body?.evaluate(
     (el: HTMLElement): { height: number } => ({
       height: el.scrollHeight,
-    })
+    }),
   )) ?? { height: 1080 };
   await page.setViewportSize({ width: breakpoints[breakpoint], height });
 

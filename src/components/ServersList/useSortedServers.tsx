@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 export function useSortedServers(
-  servers: { name: string; distance: number }[]
+  servers: { name: string; distance: number }[],
 ) {
   const [sort, setSort] = useState<
     "countryAsc" | "countryDec" | "distanceAsc" | "distanceDec" | "noSort"
@@ -25,7 +25,7 @@ export function useSortedServers(
         }
         return 0;
       }),
-    [servers, sort]
+    [servers, sort],
   );
 
   useEffect(() => {

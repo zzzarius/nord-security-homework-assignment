@@ -1,1 +1,1 @@
-export { reverseText } from './reverse-text';
+export { reverseText } from "./reverse-text";

@@ -6,7 +6,7 @@ export function Flag({ text }: { text: string }) {
   const [mounted, setMounted] = useState(false);
 
   function handleFlagLoad(
-    event: React.SyntheticEvent<HTMLImageElement, Event>
+    event: React.SyntheticEvent<HTMLImageElement, Event>,
   ) {
     const img = event.target as HTMLImageElement;
     img.classList.remove("opacity-0");

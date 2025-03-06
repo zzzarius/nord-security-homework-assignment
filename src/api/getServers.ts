@@ -18,7 +18,7 @@ export async function getServers(token: string) {
 
   if (!serversResponse.ok) {
     throw new Error(
-      `Failed to fetch servers. Status code: ${serversResponse.status}`
+      `Failed to fetch servers. Status code: ${serversResponse.status}`,
     );
   }
 

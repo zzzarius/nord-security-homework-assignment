@@ -20,7 +20,6 @@
   --animate-in: animateIn 0.5s ease-in normal forwards 1;
   --animate-in-fast: animateIn 0.2s ease-in normal forwards 1;
 
-
   @keyframes animateIn {
     0% {
       opacity: 0;

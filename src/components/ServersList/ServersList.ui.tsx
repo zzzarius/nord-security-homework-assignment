@@ -1,4 +1,4 @@
-import downSvg from "@/assets/down.svg";
+import sortArrowSvg from "@/assets/sortArrow.svg";
 import { twMerge } from "tailwind-merge";
 import { useSortedServers } from "./useSortedServers";
 import { Flag } from "./Flag";
@@ -26,7 +26,7 @@ export function ServersList({
               sort === "countryAsc" && "transform rotate-0",
               !sort.startsWith("country") && "hidden",
             ])}
-            src={downSvg.src}
+            src={sortArrowSvg.src}
             alt=""
           />
         </button>
@@ -42,7 +42,7 @@ export function ServersList({
               sort === "distanceAsc" && "transform rotate-0",
               !sort.startsWith("distance") && "hidden",
             ])}
-            src={downSvg.src}
+            src={sortArrowSvg.src}
             width="10"
             height="10"
             alt="sort indicator"
