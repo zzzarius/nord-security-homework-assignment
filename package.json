@@ -13,8 +13,8 @@
     "e2e:update": "playwright test --update-snapshots",
     "vitest": "vitest",
     "vitest:run": "vitest run",
-    "test": "vitest && npm e2e",
-    "test:update": "vitest --update && npm e2e:update"
+    "test": "vitest && npm run e2e",
+    "test:update": "vitest --update && npm run e2e:update"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
