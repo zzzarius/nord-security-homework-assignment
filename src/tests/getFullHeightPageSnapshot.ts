@@ -21,7 +21,7 @@ export async function getFullHeightPageSnapshot(
       height: el.scrollHeight,
     })
   )) ?? { height: 1080 };
-
   await page.setViewportSize({ width: breakpoints[breakpoint], height });
+
   await expect(page).toHaveScreenshot();
 }
