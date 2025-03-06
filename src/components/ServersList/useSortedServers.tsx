@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 export function useSortedServers(
-  servers: { name: string; distance: string }[]
+  servers: { name: string; distance: number }[]
 ) {
   const [sort, setSort] = useState<
     "countryAsc" | "countryDec" | "distanceAsc" | "distanceDec" | "noSort"
@@ -18,10 +18,10 @@ export function useSortedServers(
           return b.name.localeCompare(a.name);
         }
         if (sort === "distanceAsc") {
-          return Number.parseInt(a.distance) - Number.parseInt(b.distance);
+          return a.distance - b.distance;
         }
         if (sort === "distanceDec") {
-          return Number.parseInt(b.distance) - Number.parseInt(a.distance);
+          return b.distance - a.distance;
         }
         return 0;
       }),
