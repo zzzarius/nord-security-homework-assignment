@@ -34,7 +34,7 @@ if (Astro.request.method === "POST") {
     if (!errorText && token) {
       Astro.cookies.set("token", token, {
         expires: new Date(
-          Date.now() + 1000 * 60 * 60 * 24 * cookieValidForDays
+          Date.now() + 1000 * 60 * 60 * 24 * cookieValidForDays,
         ),
       });
       return new Response(null, {
