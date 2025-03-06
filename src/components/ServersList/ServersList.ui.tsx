@@ -7,7 +7,7 @@ import { Flag } from "./Flag";
 export function ServersList({
   servers,
 }: {
-  servers: { name: string; distance: string }[];
+  servers: { name: string; distance: number }[];
 }) {
   const { sortedServers, handleCountrySort, handleDistanceSort, sort } =
     useSortedServers(servers);

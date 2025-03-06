@@ -12,11 +12,7 @@ const token = Astro.cookies.get("token")?.value;
 if (!token) {
   return Astro.redirect("/login");
 }
-let servers: {
-  name: string;
-  distance: number;
-}[] = [];
-
+let servers: Awaited<ReturnType<typeof getServers>> = [];
 try {
   servers = await getServers(token);
 } catch (error) {
