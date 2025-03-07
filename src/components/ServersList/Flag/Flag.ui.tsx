@@ -1,6 +1,6 @@
 import { CI } from "astro:env/client";
 import { useEffect, useState } from "react";
-import { getFlagImageSrcFromText } from "./getFlagFromText";
+import { getFlagImageSrcFromText } from "./getFlagImageSrcFromText";
 
 interface FlagProps {
   text: string;

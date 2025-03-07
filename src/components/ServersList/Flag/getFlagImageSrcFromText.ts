@@ -1,6 +1,9 @@
 export function getFlagImageSrcFromText(text: string) {
   let countryName = "";
   let countryCode = "notFound";
+  if (!text) {
+    return [`/flags/${countryCode}.svg`, countryName];
+  }
   const lowercaseText = text.toLowerCase();
 
   if (lowercaseText.includes("andorra")) {
