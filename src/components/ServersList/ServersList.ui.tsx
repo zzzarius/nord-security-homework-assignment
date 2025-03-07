@@ -1,8 +1,8 @@
+import { CI } from "astro:env/client";
 import sortArrowSvg from "@/assets/sortArrow.svg";
 import { twMerge } from "tailwind-merge";
 import { Flag } from "./Flag";
 import { useSortedServers } from "./useSortedServers";
-import { CI } from "astro:env/client";
 
 interface ServersListProps {
   servers: { name: string; distance: number }[];

@@ -31,3 +31,4 @@ playwright-test-results/
 
 # vercel artifacts
 .vercel/
+.vercel

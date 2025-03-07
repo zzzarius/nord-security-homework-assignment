@@ -5,9 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, envField } from "astro/config";
 import { loadEnv } from "vite";
 
-const { PREVIEW, CI } = loadEnv(process.env.NODE_ENV || "", process.cwd(), "");
-const isPreview = PREVIEW === "true";
+const { NODE_ENV, CI } = loadEnv(process.env.NODE_ENV || "", process.cwd(), "");
 const isCI = CI === "true";
+const isDev = NODE_ENV === "development";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,23 +19,18 @@ export default defineConfig({
     enabled: !isCI,
   },
   integrations: [react()],
-  adapter: isPreview
-    ? node({
-        mode: "standalone",
-      })
-    : vercel(),
+  adapter:
+    isCI || isDev
+      ? node({
+          mode: "standalone",
+        })
+      : vercel(),
   env: {
     schema: {
       CI: envField.boolean({
         context: "client",
         access: "public",
         optional: true,
-      }),
-      PREVIEW: envField.boolean({
-        context: "server",
-        access: "secret",
-        optional: true,
-        default: true,
       }),
       SERVERS_API_ENDPOINT: envField.string({
         context: "server",

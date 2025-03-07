@@ -1,11 +1,11 @@
 ---
+import { CI } from "astro:env/client";
 import { BAD_CREDENTIALS, NO_USERNAME_OR_PASSWORD } from "@/api/errors";
 import { getToken } from "@/api/getToken";
 import { LoginForm } from "@/components/LoginForm";
 import Layout from "@/layouts/Layout.astro";
 import { cookieValidForDays } from "@config";
 import { twMerge } from "tailwind-merge";
-import { CI } from "astro:env/client";
 
 export const prerender = false;
 
@@ -36,7 +36,7 @@ if (Astro.request.method === "POST") {
     if (!errorText && token) {
       Astro.cookies.set("token", token, {
         expires: new Date(
-          Date.now() + 1000 * 60 * 60 * 24 * cookieValidForDays
+          Date.now() + 1000 * 60 * 60 * 24 * cookieValidForDays,
         ),
       });
       return new Response(null, {

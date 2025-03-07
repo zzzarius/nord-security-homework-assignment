@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { testWithTokenCookie } from "./fixtures/TokenCookie.fixture";
 
 test.describe("Servers Sorting", () => {
@@ -39,15 +39,12 @@ test.describe("Servers Sorting", () => {
       .first()
       .innerText();
     expect(initialFirstItem).toContain("16 km");
-    const distanceButton = await page
+    const distanceButton = page
       .getByRole("button")
       .filter({ hasText: "Distance" })
       .first();
     await distanceButton.click();
-    const decSortedFirstItem = await page
-      .getByRole("listitem")
-      .first()
-      .innerText();
+    const decSortedFirstItem = page.getByRole("listitem").first().innerText();
     expect(decSortedFirstItem).toContain("1548 km");
     await distanceButton.click();
     const notSortedItems = await page.getByRole("listitem").first().innerText();
