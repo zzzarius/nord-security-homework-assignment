@@ -6,17 +6,14 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export function FormField({ className, name, label, ...rest }: FormFieldProps) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label
-        className="text-sm font-medium text-[12px] leading-[21px]"
-        htmlFor={name}
-      >
+    <div className="flex flex-col gap-2">
+      <label className="text-xs font-medium" htmlFor={name}>
         {label}
       </label>
       <input
         id={name}
         name={name}
-        className="placeholder:nexos-gray-light py-3 px-4 border border-nexos-border rounded-sm"
+        className="placeholder:nexos-gray-light border border-nexos-border pt-3 pb-3 px-4 rounded-[0.3125rem]"
         type="text"
         placeholder=""
         {...rest}

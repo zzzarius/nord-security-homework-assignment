@@ -13,7 +13,7 @@ export function Button({
   ...rest
 }: ButtonProps) {
   const primaryClasses =
-    "bg-nexos-highlight text-nexos-light hover:bg-nexos-light hover:text-nexos-highlight";
+    "bg-nexos-highlight text-nexos-light hover:bg-nexos-light hover:text-nexos-highlight leading-normal font-semibold";
 
   const secondaryClasses =
     "bg-nexos-light text-nexos-highlight hover:bg-nexos-highlight hover:text-nexos-light";
@@ -24,7 +24,7 @@ export function Button({
   return (
     <button
       className={twMerge([
-        "cursor-pointer rounded-4xl border-1 border-nexos-highlight mt-4 py-3 transition-colors",
+        "cursor-pointer rounded-4xl border-1 border-nexos-highlight pt-3 pb-2.5 transition-colors",
         buttonClasses,
         className,
       ])}

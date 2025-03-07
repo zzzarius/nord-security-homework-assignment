@@ -9,7 +9,7 @@ export function LoadingIndicator({ visible }: LoadingIndicatorProps) {
   return (
     <div
       className={twMerge([
-        "pt-28 md:pt-26 pb-40 md:pb-39",
+        "pt-28 lg:pt-26 pb-40 lg:pb-38",
         visible ? "flex flex-col items-center" : "hidden",
       ])}
     >
@@ -20,7 +20,7 @@ export function LoadingIndicator({ visible }: LoadingIndicatorProps) {
         alt="Loading indicator"
         src={loaderSvg.src}
       />
-      <h2 className="text-nexos-gray-text mt-6 -md:mt-5.5 text-xl md:text-[28px] md:leading-[38px] md:tracking-[-0.56px] font-semibold">
+      <h2 className="text-nexos-gray-text mt-6 -lg:mt-5.5 text-xl leading-[1.875rem] lg:text-[1.75rem] lg:leading-[2.375rem] lg:tracking-[-0.035rem] font-semibold">
         Logging in
       </h2>
     </div>

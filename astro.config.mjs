@@ -3,10 +3,7 @@ import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, envField } from "astro/config";
-// @ts-check
 import { loadEnv } from "vite";
-
-import { setPrerender } from "./src/integrations/previewMode";
 
 const { PREVIEW, CI } = loadEnv(process.env.NODE_ENV || "", process.cwd(), "");
 const isPreview = PREVIEW === "true";
@@ -21,7 +18,7 @@ export default defineConfig({
   devToolbar: {
     enabled: !isCI,
   },
-  integrations: [setPrerender(), react()],
+  integrations: [react()],
   adapter: isPreview
     ? node({
         mode: "standalone",

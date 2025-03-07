@@ -53,19 +53,21 @@ export function LoginForm({
     <div
       className={twMerge([
         "flex flex-col gap-4 justify-center items-center bg-nexos-light",
-        "max-w-[410px] mx-auto pt-6 md:pt-8 pb-10 md:pb-11.5 rounded-lg",
+        "max-w-[410px] mx-auto pt-6 lg:pt-8 pb-10 lg:pb-[3.125rem] rounded-[0.625rem] lg:rounded-[0.625rem]",
         "shadow-xl w-full",
       ])}
     >
       <img width="108" height="49" src={logoSvg.src} alt="Developer logo" />
       {!isLoading && (
         <>
-          <Heading1 className="mt-6">Welcome back!</Heading1>
+          <Heading1 className="mt-6" size="medium">
+            Welcome back!
+          </Heading1>
           <Description>
             Enter details below to log in to your account.
           </Description>
           <form
-            className="flex flex-col gap-4 w-full px-6 md:px-8 text-nexos-gray-text"
+            className="flex flex-col gap-4 w-full px-6 lg:px-8 text-nexos-gray-text"
             method="post"
             onSubmit={handleFormSubmit}
           >
@@ -82,8 +84,8 @@ export function LoginForm({
               placeholder="Enter password"
               defaultValue={password}
             />
-            {error && <p className="text-red-600">{error}</p>}
-            <Button variant="primary" type="submit">
+            {error && <p className="text-nexos-error">{error}</p>}
+            <Button variant="primary" type="submit" className="mt-4">
               Log in
             </Button>
           </form>

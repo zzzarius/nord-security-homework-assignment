@@ -13,12 +13,12 @@ export function Heading1({
 }: HeadingProps) {
   const sizeClasses =
     size === "large"
-      ? "md:text-[48px] md:leading-[64px] md:tracking-[-0.96px]"
-      : "md:text-[32px] md:leading-[44px] md:tracking-[-0.64px]";
+      ? "lg:text-5xl lg:leading-[4rem] lg:tracking-[-0.06rem]"
+      : "lg:text-[2rem] lg:leading-[2.75rem] lg:tracking-[-0.04rem]";
   return (
     <h1
       className={twMerge([
-        "text-center text-semibold text-[28px] leading-[40px] -tracking-[-0.56px]",
+        "text-center text-semibold text-[1.75rem] font-semibold leading-10 tracking-[-0.035rem]",
         sizeClasses,
         className,
       ])}

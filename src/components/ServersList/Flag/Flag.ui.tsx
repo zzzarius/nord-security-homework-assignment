@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { getFlagImageSrcFromText } from "./getFlagFromText";
 
-export function Flag({ text }: { text: string }) {
+interface FlagProps {
+  text: string;
+  lazyLoad?: boolean;
+}
+
+export function Flag({ text, lazyLoad = false }: FlagProps) {
+  const lazyLoadFlag = lazyLoad ? "lazy" : "eager";
   const [flagSrc, countryName] = getFlagImageSrcFromText(text);
   const [mounted, setMounted] = useState(false);
 
@@ -17,17 +23,17 @@ export function Flag({ text }: { text: string }) {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <div className="min-w-[32px] min-h-[24px]" />;
+  if (!mounted) return <div className="min-w-8 min-h-6" />;
 
   return (
     <img
-      className="border-[1px] border-nexos-border object-cover min-w-[32px] min-h-[24px] max-w-[32px] max-h-[24px] opacity-0"
+      className="border-[1px] border-nexos-border object-cover min-w-8 min-h-6 max-w-8 max-h-6 opacity-0"
       width="32"
       height="24"
       onLoad={handleFlagLoad}
       src={flagSrc}
       alt={`Flag of ${countryName}`}
-      loading="lazy"
+      loading={lazyLoadFlag}
     />
   );
 }
