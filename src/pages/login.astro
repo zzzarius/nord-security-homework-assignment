@@ -4,6 +4,8 @@ import { getToken } from "@/api/getToken";
 import { LoginForm } from "@/components/LoginForm";
 import Layout from "@/layouts/Layout.astro";
 import { cookieValidForDays } from "@config";
+import { twMerge } from "tailwind-merge";
+import { CI } from "astro:env/client";
 
 export const prerender = false;
 
@@ -34,7 +36,7 @@ if (Astro.request.method === "POST") {
     if (!errorText && token) {
       Astro.cookies.set("token", token, {
         expires: new Date(
-          Date.now() + 1000 * 60 * 60 * 24 * cookieValidForDays,
+          Date.now() + 1000 * 60 * 60 * 24 * cookieValidForDays
         ),
       });
       return new Response(null, {
@@ -49,7 +51,12 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout title="Login">
-  <div class="grid place-items-center mt-20.5 p-3.5 animate-in opacity-0">
+  <div
+    class={twMerge([
+      !CI && "animate-in opacity-0",
+      "grid place-items-center mt-20.5 p-3.5",
+    ])}
+  >
     <LoginForm
       client:load
       errorText={errorText}

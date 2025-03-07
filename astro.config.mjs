@@ -27,8 +27,8 @@ export default defineConfig({
   env: {
     schema: {
       CI: envField.boolean({
-        context: "server",
-        access: "secret",
+        context: "client",
+        access: "public",
         optional: true,
       }),
       PREVIEW: envField.boolean({

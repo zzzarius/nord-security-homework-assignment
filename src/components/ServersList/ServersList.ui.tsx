@@ -2,6 +2,7 @@ import sortArrowSvg from "@/assets/sortArrow.svg";
 import { twMerge } from "tailwind-merge";
 import { Flag } from "./Flag";
 import { useSortedServers } from "./useSortedServers";
+import { CI } from "astro:env/client";
 
 interface ServersListProps {
   servers: { name: string; distance: number }[];
@@ -12,7 +13,12 @@ export function ServersList({ servers }: ServersListProps) {
     useSortedServers(servers);
 
   return (
-    <div className="bg-nexos-light px-4 lg:px-8 rounded-[0.75rem] shadow-xl w-full max-w-[624px] lg:min-w-xl mb-16 animate-in">
+    <div
+      className={twMerge([
+        !CI && "animate-in",
+        "bg-nexos-light px-4 lg:px-8 rounded-[0.75rem] shadow-xl w-full max-w-[624px] lg:min-w-xl mb-16",
+      ])}
+    >
       <div className="flex justify-between ">
         <button
           type="button"
@@ -62,7 +68,10 @@ export function ServersList({ servers }: ServersListProps) {
           <li
             // biome-ignore lint/suspicious/noArrayIndexKey: animate on sort
             key={name + distance + idx}
-            className="border-t border-nexos-border py-6 lg:py-8 text-sm flex justify-between opacity-0 animate-in-fast"
+            className={twMerge([
+              !CI && "opacity-0 animate-in-fast",
+              "border-t border-nexos-border py-6 lg:py-8 text-sm flex justify-between",
+            ])}
             style={{ animationDelay: `${idx * 20}ms` }}
           >
             <span className="flex gap-4 items-center">

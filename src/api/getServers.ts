@@ -1,4 +1,5 @@
-import { CI, SERVERS_API_ENDPOINT } from "astro:env/server";
+import { SERVERS_API_ENDPOINT } from "astro:env/server";
+import { CI } from "astro:env/client";
 import { SERVERS_RESPONSE_MOCK } from "./ServersResponse.mock";
 
 export interface Server {
@@ -18,7 +19,7 @@ export async function getServers(token: string) {
 
   if (!serversResponse.ok) {
     throw new Error(
-      `Failed to fetch servers. Status code: ${serversResponse.status}`,
+      `Failed to fetch servers. Status code: ${serversResponse.status}`
     );
   }
 

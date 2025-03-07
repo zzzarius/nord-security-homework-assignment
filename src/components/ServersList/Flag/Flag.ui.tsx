@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFlagImageSrcFromText } from "./getFlagFromText";
+import { CI } from "astro:env/client";
 
 interface FlagProps {
   text: string;
@@ -12,11 +13,13 @@ export function Flag({ text, lazyLoad = false }: FlagProps) {
   const [mounted, setMounted] = useState(false);
 
   function handleFlagLoad(
-    event: React.SyntheticEvent<HTMLImageElement, Event>,
+    event: React.SyntheticEvent<HTMLImageElement, Event>
   ) {
     const img = event.target as HTMLImageElement;
     img.classList.remove("opacity-0");
-    img.classList.add("animate-in-fast");
+    if (!CI) {
+      img.classList.add("animate-in-fast");
+    }
   }
 
   useEffect(() => {

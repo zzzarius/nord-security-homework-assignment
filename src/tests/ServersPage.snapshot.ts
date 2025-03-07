@@ -1,31 +1,14 @@
-import { test as base } from "@playwright/test";
+import { test } from "@playwright/test";
+import { testWithTokenCookie } from "./fixtures/TokenCookie.fixture";
 
 import {
   DESKTOP,
   MOBILE,
   TABLET,
   getFullHeightPageSnapshot,
-} from "./getFullHeightPageSnapshot";
+} from "./utils/getFullHeightPageSnapshot";
 
-// biome-ignore lint/suspicious/noConfusingVoidType: To make it simpler use void as written in playwright docs
-export const testWithTokenCookie = base.extend<{ forEachTest: void }>({
-  forEachTest: [
-    async ({ context }, use) => {
-      await context.addCookies([
-        {
-          name: "token",
-          value: "dummyToken",
-          path: "/",
-          domain: "localhost",
-        },
-      ]);
-      await use();
-    },
-    { auto: true },
-  ],
-});
-
-base.describe("Servers Page", () => {
+test.describe("Servers Page", () => {
   testWithTokenCookie(MOBILE, async ({ page }) => {
     await getFullHeightPageSnapshot("/", page, MOBILE);
   });

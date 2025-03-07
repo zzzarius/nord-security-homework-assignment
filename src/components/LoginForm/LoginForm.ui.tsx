@@ -37,8 +37,8 @@ export function LoginForm({
       setIsLoading(false);
       return;
     }
-    setPassword(usernameFormValue);
-    setUsername(passwordFormValue);
+    setPassword(passwordFormValue);
+    setUsername(usernameFormValue);
     try {
       const token = await getToken(usernameFormValue, passwordFormValue);
       Cookies.set("token", token, { expires: cookieValidForDays, path: "" });
@@ -85,7 +85,12 @@ export function LoginForm({
               defaultValue={password}
             />
             {error && <p className="text-nexos-error">{error}</p>}
-            <Button variant="primary" type="submit" className="mt-4">
+            <Button
+              variant="primary"
+              type="submit"
+              name="submit"
+              className="mt-4"
+            >
               Log in
             </Button>
           </form>

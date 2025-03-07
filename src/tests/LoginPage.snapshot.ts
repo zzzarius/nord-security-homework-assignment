@@ -4,7 +4,7 @@ import {
   MOBILE,
   TABLET,
   getFullHeightPageSnapshot,
-} from "./getFullHeightPageSnapshot";
+} from "./utils/getFullHeightPageSnapshot";
 
 test.describe("Login Page", () => {
   test(MOBILE, async ({ page }) => {
