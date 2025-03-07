@@ -1,3 +1,4 @@
+// @ts-nocheck - Await is required by playwright but astro check gives error
 import { expect, test } from "@playwright/test";
 import { testWithTokenCookie } from "./fixtures/TokenCookie.fixture";
 
