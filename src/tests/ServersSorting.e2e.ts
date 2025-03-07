@@ -10,26 +10,26 @@ test.describe("Servers Sorting", () => {
     const initialFirstItem = await page
       .getByRole("listitem")
       .first()
-      .innerText();
+      .textContent();
     expect(initialFirstItem).toContain("Lithuania");
     await page.click("text=Country");
     const ascSortedFirstItem = await page
       .getByRole("listitem")
       .first()
-      .innerText();
+      .textContent();
     expect(initialFirstItem).not.toEqual(ascSortedFirstItem);
     expect(ascSortedFirstItem).toContain("Latvia");
     await page.click("text=Country");
     const decSortedFirstItem = await page
       .getByRole("listitem")
       .first()
-      .innerText();
+      .textContent();
     expect(decSortedFirstItem).toContain("United States");
     await page.click("text=Country");
     const notSortedFirstItem = await page
       .getByRole("listitem")
       .first()
-      .innerText();
+      .textContent();
     expect(notSortedFirstItem).toContain("Singapore");
   });
 
@@ -37,17 +37,23 @@ test.describe("Servers Sorting", () => {
     const initialFirstItem = await page
       .getByRole("listitem")
       .first()
-      .innerText();
+      .textContent();
     expect(initialFirstItem).toContain("16 km");
-    const distanceButton = page
+    const distanceButton = await page
       .getByRole("button")
       .filter({ hasText: "Distance" })
       .first();
     await distanceButton.click();
-    const decSortedFirstItem = page.getByRole("listitem").first().innerText();
+    const decSortedFirstItem = await page
+      .getByRole("listitem")
+      .first()
+      .textContent();
     expect(decSortedFirstItem).toContain("1548 km");
     await distanceButton.click();
-    const notSortedItems = await page.getByRole("listitem").first().innerText();
+    const notSortedItems = await page
+      .getByRole("listitem")
+      .first()
+      .textContent();
     expect(notSortedItems).toContain("696 km");
   });
 });
