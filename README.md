@@ -1,35 +1,51 @@
-# Technical Interview Task for a Front-End Position
+# Homework
 
-## Functional requirements
+Project requirements and additional context can be found [here](REQUIREMENTS.md)
 
-- 🔍 Create a server explorer web app
-- 🔒 Implement login ``POST https://playground.tesonet.lt/v1/tokens {username: "tesonet", password: "partyanimal" }``
-- 📋 Display servers list
-```GET https://playground.tesonet.lt/v1/servers```
-- ↕ Make servers list sortable by name/distance
+## Screenshots
 
-## Non-functional requirements
+| Login screen | Servers List |
+| :------------| :------------|
+| ![Login screen](src/tests/__snapshots__/Login-Page-mobile-1.png) | ![Servers list](src/tests/__snapshots__/Servers-Page-mobile-1.png) |
 
-- 🌐 App must work on all modern browsers
-- 📱 App must also work well on mobile & tablet devices
-- ✔️ App must be production-ready. We'd like you to demonstrate what a production-ready app means to you. No need to overcomplicate things, having the basics covered and listing some ideas for improvement in the documentation will suffice
-- 🧪 We like tests
-- ♿️ Consider a11y
 
-## Design requirements
+## Setup
 
-Please follow the provided [design](https://www.figma.com/file/Vwv2xN7hYUADzIotUcSypF/Design-for-Front-End-Recruitment-Task?type=design&node-id=1-554&t=ork7e8jy9iWuLikn-0) 👈. We're looking for accurate implementation of the design and attention to detail.
+- `cp .env.example .env` and fill out the variables
+- `npm install`
+- run `npx playwright install` to be able to run e2e tests locally
+- run `npm run dev` and go to [http://localhost:4321](http://localhost:4321)
 
-## Side notes
+## 🧞 Commands
 
-- You may use the JavaScript framework of your choice
-- If you're proficient with TypeScript, we encourage you to showcase your skills 😎
-- We prefer the repository structure to adhere to industry-standard practices
+All commands are run from the root of the project, from a terminal:
 
-## Home task submission
+| Command                   | Action                                                                    |
+| :------------------------ | :-------------------------------------------------------------------------|
+| Astro commands            |                                                                           |
+| `npm install`             | Install dependencies                                                      |
+| `npm run dev`             | Start  local dev server at [http://localhost:4321](http://localhost:4321) |
+| `npm run build`           | Build your production site to `./dist/`                                   |
+| `npm run preview`         | Preview your build locally, before deploying                              |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check`                          |
+| `npm run astro -- --help` | Get help using the Astro CLI                                              |
+| Other commands            |                                                                           |
+| `npm run lint`            | Check for formatting & code issues                                        |
+| `npm run lint:fix`        | Autofix formatting & code issues where possible                           |
+| `npm run e2e`             | Run e2e (playwright) tests                                                |
+| `npm run e2e:update`      | Update snapshots for e2e  (playwright) tests                              |
+| `npm run vitest`          | Run vitest unit tests and watch for file changes                          |
+| `npm run vitest:run`      | Run vitest once without watching for changes                              |
+| `npm run test`            | Runs vitest and e2e (playwright) tests                                    |
+| `npm run test:update`     | Update snapshots for all tests                                            |
 
-As for the submission of the task, we fully understand that people have lives outside of work. Therefore, we do not expect home tasks to be submitted within a day or two. On average, we get them back within a week. But if more time is needed – simply inform your recruiter, so everyone is updated.
+## Tests
 
-Once you have finished the task, please let your recruiter know. They will then assign a Nord Security developer to start the review process (which typically takes 1-2 days). After that, the recruiter will share full feedback with you.
+There are two types of tests
 
-We wish you all the best and look forward to meeting you for a technical discussion! Good luck!
+- End-to-end - using [Playwright](https://playwright.dev/docs/intro). For
+  making accurate snapshots (screenshots) to be able to catch regressions
+  early. And for testing critical business logic using actual browser as
+  end user would.
+- Unit tests - using [Vitest](https://vitest.dev/guide/). For testing
+  validity of the functions.

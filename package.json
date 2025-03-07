@@ -1,0 +1,46 @@
+{
+  "name": "developer-homework",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "astro check && biome check .",
+    "lint:fix": "biome check --write .",
+    "e2e": "playwright test",
+    "e2e:update": "playwright test --update-snapshots",
+    "vitest": "vitest",
+    "vitest:update": "vitest --update",
+    "vitest:run": "vitest run",
+    "test": "npm run vitest:run && npm run e2e",
+    "test:update": "npm run vitest:update && npm run e2e:update"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^9.1.2",
+    "@astrojs/react": "^4.2.1",
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@astrojs/vercel": "^8.1.1",
+    "@tailwindcss/vite": "^4.0.9",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "astro": "^5.4.0",
+    "js-cookie": "^3.0.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@playwright/test": "^1.50.1",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^22.13.9",
+    "playwright": "^1.50.1",
+    "vitest": "^3.0.7"
+  }
+}

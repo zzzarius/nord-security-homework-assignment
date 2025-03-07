@@ -1,0 +1,55 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/Header/Header.astro";
+import { defaultTitle, siteName } from "@config";
+import { twMerge } from "tailwind-merge";
+
+interface Props {
+  containerClass?: string;
+  class?: string;
+  showHeader?: boolean;
+  preload?: string[];
+  title: string;
+}
+
+const {
+  class: className,
+  showHeader = false,
+  preload,
+  containerClass,
+  title = defaultTitle,
+} = Astro.props;
+
+const titleWithSiteName = `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      preload?.map((href) => (
+        <link rel="preload" href={href} as="fetch" crossorigin />
+      ))
+    }
+    <meta name="generator" content={Astro.generator} />
+    <title>{titleWithSiteName}</title>
+  </>
+  <body class:list={twMerge(["bg-nexos-gray text-nexos-text", containerClass])}>
+    {showHeader && <Header class="max-w-6xl" />}
+    <main class:list={["max-w-6xl mx-auto py-4 bg-nexos-gray", className]}>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
