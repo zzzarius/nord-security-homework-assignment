@@ -1,15 +1,15 @@
-import logoSvg from "@/assets/logo.svg";
-import { useState } from "react";
-import { LoadingIndicator } from "./LoadingIndicator.ui";
+import { BAD_CREDENTIALS, NO_USERNAME_OR_PASSWORD } from "@/api/errors";
 import { getToken } from "@/api/getToken";
-import Cookies from "js-cookie";
+import logoSvg from "@/assets/logo.svg";
 import { Button } from "@/shared/components/Button";
-import { FormField } from "./FormField.ui";
 import { Description } from "@/shared/components/Description";
 import { Heading1 } from "@/shared/components/Heading1";
-import { twMerge } from "tailwind-merge";
-import { BAD_CREDENTIALS, NO_USERNAME_OR_PASSWORD } from "@/api/errors";
 import { cookieValidForDays } from "@config";
+import Cookies from "js-cookie";
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
+import { FormField } from "./FormField.ui";
+import { LoadingIndicator } from "./LoadingIndicator.ui";
 
 interface LoginFormProps {
   errorText?: string;

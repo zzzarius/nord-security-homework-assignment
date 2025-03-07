@@ -1,7 +1,7 @@
 import sortArrowSvg from "@/assets/sortArrow.svg";
 import { twMerge } from "tailwind-merge";
-import { useSortedServers } from "./useSortedServers";
 import { Flag } from "./Flag";
+import { useSortedServers } from "./useSortedServers";
 
 export function ServersList({
   servers,

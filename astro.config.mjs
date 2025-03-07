@@ -1,10 +1,10 @@
-// @ts-check
-import { loadEnv } from "vite";
-import { defineConfig, envField } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
+import node from "@astrojs/node";
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
-import node from "@astrojs/node";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig, envField } from "astro/config";
+// @ts-check
+import { loadEnv } from "vite";
 
 import { setPrerender } from "./src/integrations/previewMode";
 

@@ -1,9 +1,9 @@
 import { test } from "@playwright/test";
 import {
-  getFullHeightPageSnapshot,
+  DESKTOP,
   MOBILE,
   TABLET,
-  DESKTOP,
+  getFullHeightPageSnapshot,
 } from "./getFullHeightPageSnapshot";
 
 test.describe("Login Page", () => {

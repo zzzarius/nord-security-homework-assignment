@@ -1,5 +1,5 @@
-import { getFlagImageSrcFromText } from "./getFlagFromText";
 import { useEffect, useState } from "react";
+import { getFlagImageSrcFromText } from "./getFlagFromText";
 
 export function Flag({ text }: { text: string }) {
   const [flagSrc, countryName] = getFlagImageSrcFromText(text);

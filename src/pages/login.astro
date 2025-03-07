@@ -1,8 +1,8 @@
 ---
+import { BAD_CREDENTIALS, NO_USERNAME_OR_PASSWORD } from "@/api/errors";
+import { getToken } from "@/api/getToken";
 import { LoginForm } from "@/components/LoginForm";
 import Layout from "@/layouts/Layout.astro";
-import { getToken } from "@/api/getToken";
-import { BAD_CREDENTIALS, NO_USERNAME_OR_PASSWORD } from "@/api/errors";
 import { cookieValidForDays } from "@config";
 
 export const prerender = false;

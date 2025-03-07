@@ -1,10 +1,10 @@
 import { test as base } from "@playwright/test";
 
 import {
-  getFullHeightPageSnapshot,
+  DESKTOP,
   MOBILE,
   TABLET,
-  DESKTOP,
+  getFullHeightPageSnapshot,
 } from "./getFullHeightPageSnapshot";
 
 // biome-ignore lint/suspicious/noConfusingVoidType: To make it simpler use void as written in playwright docs

@@ -19,10 +19,8 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 | Other commands            |                                                  |
-| `npm run lint`            | Check for code issues                            |
-| `npm run lint:fix`        | Autofix code issues where possible               |
-| `npm run format`          | Check for code formatting issues                 |
-| `npm run format:fix`      | Fix code formatting issues where possible        |
+| `npm run lint`            | Check for formatting & code issues               |
+| `npm run lint:fix`        | Autofix formatting & code issues where possible  |
 | `npm run e2e`             | Run e2e (playwright) tests                       |
 | `npm run e2e:update`      | Update snapshots for e2e  (playwright) tests     |
 | `npm run vitest`          | Run vitest unit tests and watch for file changes |

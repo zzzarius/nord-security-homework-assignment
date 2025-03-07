@@ -25,7 +25,7 @@ jobs:
         run: npm install --include=dev --frozen-lockfile --non-interactive
 
       - name: Check code formatting
-        run: npm run format
+        run: npm run lint
 
       - name: Install Playwright Firefox browser
         run: npx playwright install --with-deps firefox

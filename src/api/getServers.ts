@@ -1,4 +1,4 @@
-import { SERVERS_API_ENDPOINT, CI } from "astro:env/server";
+import { CI, SERVERS_API_ENDPOINT } from "astro:env/server";
 import { SERVERS_RESPONSE_MOCK } from "./ServersResponse.mock";
 
 export interface Server {
