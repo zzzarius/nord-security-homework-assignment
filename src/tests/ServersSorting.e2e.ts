@@ -35,20 +35,24 @@ test.describe("Servers Sorting", () => {
   });
 
   testWithTokenCookie("Sorting by distance", async ({ page }) => {
-    const initialFirstItem = (await page.getByRole("listitem"))
+    const initialFirstItem = await page
+      .getByRole("listitem")
       .first()
       .textContent();
     expect(initialFirstItem).toContain("16 km");
-    const distanceButton = (await page.getByRole("button"))
+    const distanceButton = await page
+      .getByRole("button")
       .filter({ hasText: "Distance" })
       .first();
     await distanceButton.click();
-    const decSortedFirstItem = (await page.getByRole("listitem"))
+    const decSortedFirstItem = await page
+      .getByRole("listitem")
       .first()
       .textContent();
     expect(decSortedFirstItem).toContain("1548 km");
     await distanceButton.click();
-    const notSortedItems = (await page.getByRole("listitem"))
+    const notSortedItems = await page
+      .getByRole("listitem")
       .first()
       .textContent();
     expect(notSortedItems).toContain("696 km");
