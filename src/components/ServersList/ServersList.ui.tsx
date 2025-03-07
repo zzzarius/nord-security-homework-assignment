@@ -43,7 +43,7 @@ export function ServersList({ servers }: ServersListProps) {
         </button>
         <button
           type="button"
-          className="cursor-pointer flex gap-5 items-center py-6 lg:pt-8 lg:pb-6  hover:text-gray-400 transition-colors mr-[0.3125rem]"
+          className="cursor-pointer flex gap-5 items-center py-6 lg:pt-8 lg:pb-6 hover:text-gray-400 transition-colors mr-[0.3125rem]"
           onClick={handleDistanceSort}
         >
           <span className="font-medium text-base leading-6 lg:text-xl lg:leading-[1.875rem]">

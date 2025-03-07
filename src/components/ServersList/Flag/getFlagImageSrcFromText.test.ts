@@ -10,7 +10,7 @@ describe("getFlagImageSrcFromText", () => {
   });
   it('Should find Lithuania in the text and return ["/flags/lt.svg", "Lithuania"]', () => {
     expect(
-      getFlagImageSrcFromText("It's good to live in Lithuania")
+      getFlagImageSrcFromText("It's good to live in Lithuania"),
     ).toStrictEqual(["/flags/lt.svg", "Lithuania"]);
   });
 
