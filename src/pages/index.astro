@@ -1,0 +1,35 @@
+---
+import { getServers } from "@/api/getServers";
+import { ServersList } from "@/components/ServersList";
+import Layout from "@/layouts/Layout.astro";
+import { Description } from "@/shared/components/Description";
+import { Heading1 } from "@/shared/components/Heading1";
+
+export const prerender = false;
+
+const token = Astro.cookies.get("token")?.value;
+
+if (!token) {
+  return Astro.redirect("/login");
+}
+let servers: Awaited<ReturnType<typeof getServers>> = [];
+try {
+  servers = await getServers(token);
+} catch (error) {
+  return Astro.redirect("/login");
+}
+---
+
+<Layout
+  class="flex flex-col items-center px-4"
+  showHeader={true}
+  title="Server list"
+>
+  <Heading1 size="large" className="mb-4">Server list</Heading1>
+  <Description
+    className="px-2 mb-7.5 lg:mb-9 lg:mt-[1px] text-nexos-text leading-6 font-normal tracking-normal"
+  >
+    The distance between you and the server
+  </Description>
+  <ServersList servers={servers} client:load />
+</Layout>

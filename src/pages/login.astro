@@ -1,0 +1,67 @@
+---
+import { CI } from "astro:env/client";
+import { BAD_CREDENTIALS, NO_USERNAME_OR_PASSWORD } from "@/api/errors";
+import { getToken } from "@/api/getToken";
+import { LoginForm } from "@/components/LoginForm";
+import Layout from "@/layouts/Layout.astro";
+import { cookieValidForDays } from "@config";
+import { twMerge } from "tailwind-merge";
+
+export const prerender = false;
+
+const existingToken = Astro.cookies.get("token")?.value;
+
+if (existingToken) {
+  Astro.cookies.delete("token");
+}
+let errorText = "";
+let username = "";
+let password = "";
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  username = formData.get("username") as string;
+  password = formData.get("password") as string;
+
+  if (!username || !password) {
+    errorText = NO_USERNAME_OR_PASSWORD;
+  } else {
+    let token: string | undefined;
+    try {
+      token = await getToken(username, password);
+    } catch (_e) {
+      errorText = BAD_CREDENTIALS;
+    }
+
+    if (!errorText && token) {
+      Astro.cookies.set("token", token, {
+        expires: new Date(
+          Date.now() + 1000 * 60 * 60 * 24 * cookieValidForDays,
+        ),
+      });
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: "/",
+        },
+      });
+    }
+  }
+}
+---
+
+<Layout title="Login">
+  <div
+    class={twMerge([
+      !CI && "animate-in opacity-0",
+      "grid place-items-center mt-20.5 p-3.5",
+    ])}
+  >
+    <LoginForm
+      client:load
+      errorText={errorText}
+      username={username}
+      password={password}
+    />
+  </div>
+</Layout>
