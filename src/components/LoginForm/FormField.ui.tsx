@@ -13,7 +13,7 @@ export function FormField({ className, name, label, ...rest }: FormFieldProps) {
       <input
         id={name}
         name={name}
-        className="placeholder:nexos-gray-light border border-nexos-border pt-3 pb-3 px-4 rounded-[0.3125rem] text-nexos-text"
+        className="placeholder:nexos-placeholder border border-nexos-border pt-3 pb-3 px-4 rounded-[0.3125rem] text-nexos-text"
         type="text"
         placeholder=""
         {...rest}

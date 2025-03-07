@@ -17,6 +17,7 @@
   --color-nexos-text: oklch(0.36 0.01 261.73 / 1); /* #383c43 */
   --color-nexos-gray: oklch(0.97 0.01 253.85 / 1); /* #f3f7fc */
   --color-nexos-gray-text: oklch(0.64 0.01 268.51 / 1); /* #8a8c91 */
+  --color-nexos-placeholder: oklch(0.79 0 271.36 / 1); /* #b9babd */
   --color-nexos-light: oklch(1 0 0 / 1); /* #ffffff */
   --color-nexos-border: oklch(0.93 0 286.37 / 1); /* #e8e8e9 */
   --color-nexos-highlight: oklch(0.56 0.24 268.3 / 1); /* #3e5fff */
