@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"a"> {}
+const { class: className, ...rest } = Astro.props;
+---
+
+<a
+  class:list={[
+    "border rounded-4xl px-6 py-2 text-xs border-nexos-border transition-colors",
+    "hover:text-white hover:bg-nexos-hover-light",
+    "active:bg-nexos-active-light active:text-white",
+    "focus:outline-2 focus:outline-offset-2 focus:outline-solid",
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</a>
