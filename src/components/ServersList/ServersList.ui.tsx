@@ -19,10 +19,10 @@ export function ServersList({ servers }: ServersListProps) {
         "bg-nexos-light px-4 lg:px-8 rounded-[0.75rem] shadow-xl w-full max-w-[624px] lg:min-w-xl mb-16",
       ])}
     >
-      <div className="flex justify-between ">
+      <div className="flex justify-between">
         <button
           type="button"
-          className="cursor-pointer flex gap-5 items-center py-6 lg:pt-8 lg:pb-6 hover:text-gray-400 transition-colors"
+          className="cursor-pointer flex gap-5 items-center my-6 lg:mt-8 lg:mb-6 hover:text-gray-400 transition-colors focus:outline-offset-2"
           onClick={handleCountrySort}
         >
           <span className="font-medium text-base leading-6 lg:text-xl lg:leading-[1.875rem]">
@@ -43,7 +43,7 @@ export function ServersList({ servers }: ServersListProps) {
         </button>
         <button
           type="button"
-          className="cursor-pointer flex gap-5 items-center py-6 lg:pt-8 lg:pb-6 hover:text-gray-400 transition-colors mr-[0.3125rem]"
+          className="cursor-pointer flex gap-5 items-center my-6 lg:mt-8 lg:mb-6 hover:text-gray-400 transition-colors mr-[0.3125rem] focus:outline-offset-2"
           onClick={handleDistanceSort}
         >
           <span className="font-medium text-base leading-6 lg:text-xl lg:leading-[1.875rem]">
