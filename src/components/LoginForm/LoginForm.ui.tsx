@@ -85,12 +85,7 @@ export function LoginForm({
               defaultValue={password}
             />
             {error && <p className="text-nexos-error">{error}</p>}
-            <Button
-              variant="primary"
-              type="submit"
-              name="submit"
-              className="mt-4"
-            >
+            <Button type="submit" name="submit" className="mt-4">
               Log in
             </Button>
           </form>
