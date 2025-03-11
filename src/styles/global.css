@@ -22,6 +22,10 @@
   --color-nexos-border: oklch(0.93 0 286.37 / 1); /* #e8e8e9 */
   --color-nexos-highlight: oklch(0.56 0.24 268.3 / 1); /* #3e5fff */
   --color-nexos-error: oklch(0.577 0.245 27.3); /* #e7000b */
+  --color-nexos-hover: oklch(0.68 0.16 267.48 / 1); /* #6b90fa */
+  --color-nexos-active: oklch(0.45 0.22 267.56 / 1); /* #243dcc */
+  --color-nexos-hover-light: oklch(0.43 0.01 280.15 / 1); /* #4D4E56 */
+  --color-nexos-active-light: oklch(0.36 0.01 279.31 / 1); /* #3C3D44 */
 
   --animate-in: animateIn 0.5s ease-in normal forwards 1;
   --animate-in-fast: animateIn 0.2s ease-in normal forwards 1;
