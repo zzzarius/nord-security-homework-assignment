@@ -40,7 +40,7 @@
     "@playwright/test": "^1.50.1",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^22.13.9",
-    "playwright": "^1.50.1",
+    "playwright": "^1.54.1",
     "vitest": "^3.0.7"
   }
 }
